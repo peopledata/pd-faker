@@ -1,0 +1,29 @@
+{
+  "name": "@peopledata/pd-faker",
+  "version": "1.0.0",
+  "description": "Personal Data Space Faker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peopledata/pd-faker.git"
+  },
+  "dependencies": {
+    "datomspace": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "@faker-js/faker": "^7.6.0",
+    "datom-crypto": "^1.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  },
+  "keywords": [],
+  "author": "jerry.zhang<jerry.zhang.bill@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peopledata/pd-faker/issues"
+  },
+  "homepage": "https://github.com/peopledata/pd-faker#readme"
+}
