@@ -1,32 +1,26 @@
-//Create Datoms on PDS
-/*
-在host name为{ datomSpaceServer }的 datomSpaceServer上创建新的datom
-*/
+//添加新的数据到已有的datoms里
 
-/*
-使用方法： 
-  1）先运行datomSpaceServer.js；
-  2) 在新的客户端，运行此程序。
-*/
-
-/* 
-datoms目录
-1. 每个datom的discoverykey的最前2个字母是1级目录名，接着2个字母是二级目录名，整个discoverykey是3级目录名。
-
-*/
 require('dotenv').config();
 
-const { faker } = require('@faker-js/faker')
 const { Client: datomsClient } = require('datomspace') 
 const crypto  = require('hypercore-crypto')
 const datomSpaceServer = process.env.PDS
-const pd_type = 'contacts' //personal data type
+const pd_type = 'banks' //personal data type, change by type
+
+
+
+//给那个datoms添加新的datom，就用其的key.
+
+// contacts
+//const key = '6b5e26571af4ee064731eba773dd0c6d1b0c18ce1847d3065c029a7bc9babe13'
+
+
+// banks
+const key = 'fe46faeae5e24b2889c97d075b6f1c476a3285b0cc792e1fd1601b3442c7d906'
+
 
 async function start () {
-
-  const c = new datomsClient(
-    
-    {
+  const c = new datomsClient({
     host: datomSpaceServer
   })
 
@@ -36,30 +30,25 @@ async function start () {
 
   const myStore = c.corestore()
 
-  const datom = myStore.get({
-
+  const datom = myStore.get(key,{
     valueEncoding: 'json'
   })
 
-  console.log(`Step 1: create ${pd_type} datoms\n`)
+  console.log(`Step 1: appned new datom on ${key} \n`)
 
 
-  //Choose different personal data type to create.
 
-
-  //1. create new bank account data to the PDS.
-
+  //1. Append 4 new data to the bank account datoms.
   
-  /*
+  
   await datom.append({
-      name: 'jerry zhang',
-      bank: 'bank of china',
-      account: '92892xxxx',
-      balance: '82988292002'
+      name: 'Tom Lee',
+      bank: 'ICCB',
+      account: '12-231-92892xxxx',
+      balance: '1112322'
   })
-*/
 
-//2. Create Personal Index data to the PDS.
+//2. Create Personal Index data to the index datoms
 
 /*
   for (let i =0; i < 100; i++) {  
@@ -71,9 +60,9 @@ async function start () {
 
 */
 
-//3. Create new Contacs data to the PDS.
-
-  for (let i =0; i < 10; i++) {
+//3. Append new Contacs data to the datoms.
+/*
+for (let i =0; i < 10; i++) {
     await datom.append({
       name: faker.name.firstName(),
       Company: faker.company.name(),
@@ -85,6 +74,7 @@ async function start () {
       zipcode: faker.address.zipCode()
     }) 
   }
+  */
 
   
 
@@ -96,7 +86,9 @@ async function start () {
  Use DID
 */
 
-  console.log('Create the datoms is:')
+  //console.log('Lengther of the conatct datoms:', Core.length)
+
+  console.log('Append the datoms is:')
 
 
   datom.createReadStream()
@@ -107,8 +99,6 @@ async function start () {
   console.log('the private key is:', datom.key.toString('hex'))
 
   console.log('the discovery key is:', crypto.discoveryKey(Buffer.from(datom.key)).toString('hex'))
-
-  
 
   c.network.configure(datom.discoveryKey, { announce: true, lookup: true })
   

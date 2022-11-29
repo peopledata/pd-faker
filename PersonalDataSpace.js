@@ -4,6 +4,7 @@
 - 远程客户端可以创建、管理和访问PDS中的datoms。
 - 拥有private key的用户可以访问、添加datoms。
 */
+require('dotenv').config();
 
 const { Server : datomsServer } = require('datomspace')
 const datomSpaceServer = process.env.PDS
