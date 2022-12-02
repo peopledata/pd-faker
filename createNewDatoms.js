@@ -20,7 +20,7 @@ const { faker } = require('@faker-js/faker')
 const { Client: datomsClient } = require('datomspace') 
 const crypto  = require('datom-crypto')
 const datomSpaceServer = process.env.PDS
-const pd_type = 'banks' //personal data type, change by type
+const pd_type = 'travel' //personal data type, change by type
 
 async function start () {
 
@@ -50,13 +50,14 @@ async function start () {
   //1. create new bank account data in the PDS.
 
   
-  
+  /*
   await datom.append({
       name: 'jerry zhang',
       bank: 'bank of china',
       account: '92892xxxx',
       balance: '82988292002'
   })
+  */
 
 //2. Create Personal Index data in the PDS.
 
@@ -86,7 +87,18 @@ async function start () {
   }
   */
 
+  //4. Create new Travle data in the PDS.
+
   
+for (let i =0; i < 10; i++) {
+    await datom.append({
+      date: faker.date.past(),
+      from: faker.address.city(),
+      to: faker.address.city()
+    }) 
+  }
+
+
 
   //console.log('Lengther of the conatct datoms:', Core.length)
 

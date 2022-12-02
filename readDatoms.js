@@ -11,11 +11,20 @@ const pd_type = 'contacts' //personal data type, change by type
 //给那个datoms添加新的datom，就用其的key.
 
 // contacts
-const key = '6b5e26571af4ee064731eba773dd0c6d1b0c18ce1847d3065c029a7bc9babe13'
+//const key = '6b5e26571af4ee064731eba773dd0c6d1b0c18ce1847d3065c029a7bc9babe13'
 
 
 // banks
 //const key = 'fe46faeae5e24b2889c97d075b6f1c476a3285b0cc792e1fd1601b3442c7d906'
+
+//travel
+
+//const key = 'cda747e2c76a74816b5225708599796e507629ac070142c303d16df57d1fef13'
+
+//index
+
+const key = 'b40b4be08e1ebad38ebc01dcdec25741b56814ffb3bbb83f8e737367eafc7a12'
+
 
 
 async function start () {

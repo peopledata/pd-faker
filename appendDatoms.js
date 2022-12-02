@@ -16,7 +16,10 @@ const pd_type = 'banks' //personal data type, change by type
 
 
 // banks
-const key = 'fe46faeae5e24b2889c97d075b6f1c476a3285b0cc792e1fd1601b3442c7d906'
+//const key = 'fe46faeae5e24b2889c97d075b6f1c476a3285b0cc792e1fd1601b3442c7d906'
+
+//index
+const key = 'b40b4be08e1ebad38ebc01dcdec25741b56814ffb3bbb83f8e737367eafc7a12'
 
 
 async function start () {
@@ -40,25 +43,22 @@ async function start () {
 
   //1. Append 4 new data to the bank account datoms.
   
-  
+  /*
   await datom.append({
       name: 'Tom Lee',
       bank: 'ICCB',
       account: '12-231-92892xxxx',
       balance: '1112322'
   })
+  */
 
 //2. Create Personal Index data to the index datoms
 
-/*
-  for (let i =0; i < 100; i++) {  
     await datom.append({
-          index: i,
-          value: i*12345
-        })
-    }
+          index: 100,
+          value: 1112345
+        })  
 
-*/
 
 //3. Append new Contacs data to the datoms.
 /*
