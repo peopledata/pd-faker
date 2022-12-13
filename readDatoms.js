@@ -23,8 +23,12 @@ const pd_type = 'contacts' //personal data type, change by type
 
 //index
 
-const key = 'b40b4be08e1ebad38ebc01dcdec25741b56814ffb3bbb83f8e737367eafc7a12'
+//const key = 'b40b4be08e1ebad38ebc01dcdec25741b56814ffb3bbb83f8e737367eafc7a12'
 
+// privateData
+
+const key = '9941fe393c391bfb7a04e342de7c4c1608df7a0e12415d6e9aa6c56dcd4699d8'
+const datomName = 'privateData'
 
 
 async function start () {
@@ -38,7 +42,8 @@ async function start () {
 
   const myStore = c.corestore()
 
-  const datom = myStore.get(key,{
+  const datom = myStore.get(key, {
+
     valueEncoding: 'json'
   })
 

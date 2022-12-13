@@ -11,10 +11,12 @@
     "url": "git+https://github.com/peopledata/pd-faker.git"
   },
   "dependencies": {
-    "datomspace": "^1.4.0",
-    "dotenv": "^10.0.0",
     "@faker-js/faker": "^7.6.0",
-    "datom-crypto": "^1.3.0"
+    "@peopleswarm/datube": "^1.2.0",
+    "b4a": "^1.6.1",
+    "datom-crypto": "^1.3.0",
+    "datomspace": "^1.4.0",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.14"

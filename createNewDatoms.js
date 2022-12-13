@@ -20,7 +20,7 @@ const { faker } = require('@faker-js/faker')
 const { Client: datomsClient } = require('datomspace') 
 const crypto  = require('datom-crypto')
 const datomSpaceServer = process.env.PDS
-const pd_type = 'travel' //personal data type, change by type
+const pd_type = 'banks' //personal data type, change by type
 
 async function start () {
 
@@ -37,7 +37,7 @@ async function start () {
   const myStore = c.corestore()
 
   const datom = myStore.get({
-
+    name: 'travel', 
     valueEncoding: 'json'
   })
 
@@ -62,6 +62,7 @@ async function start () {
 //2. Create Personal Index data in the PDS.
 
 /*
+
   for (let i =0; i < 100; i++) {  
     await datom.append({
           index: i,
@@ -72,6 +73,7 @@ async function start () {
 */
 
 //3. Create new Contacs data in the PDS.
+
 /*
   for (let i =0; i < 10; i++) {
     await datom.append({
@@ -85,11 +87,13 @@ async function start () {
       zipcode: faker.address.zipCode()
     }) 
   }
+
   */
+
 
   //4. Create new Travle data in the PDS.
 
-  
+
 for (let i =0; i < 10; i++) {
     await datom.append({
       date: faker.date.past(),
